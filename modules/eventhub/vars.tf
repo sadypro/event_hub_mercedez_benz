@@ -12,7 +12,7 @@ variable "eventhub_namespace_name" {
 
 variable "sku" {
   description = "Defines instance tier to use. Valid options are Basic and Standard."
-  default = "Standard"
+  default     = "Standard"
 }
 
 variable "namespace_capacity" {

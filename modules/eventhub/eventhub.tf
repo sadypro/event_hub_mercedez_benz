@@ -1,16 +1,16 @@
 resource "azurerm_resource_group" "mercedez_benz" {
-  name     = "${var.resource_group_name}"
-  location = "${var.region}"
-  
+  name     = var.resource_group_name
+  location = var.region
+
   tags = var.tags
 }
 
 resource "azurerm_eventhub_namespace" "mercedez_benz" {
-  name                = join("-",[var.eventhub_namespace_name, var.enviornment_name, "ns"])
+  name                = join("-", [var.eventhub_namespace_name, var.enviornment_name, "ns"])
   location            = azurerm_resource_group.mercedez_benz.location
   resource_group_name = azurerm_resource_group.mercedez_benz.name
-  sku                 = "${var.sku}"
-  capacity            = "${var.namespace_capacity}"
+  sku                 = var.sku
+  capacity            = var.namespace_capacity
 
   auto_inflate_enabled     = var.auto_inflate != null ? var.auto_inflate.enabled : null
   maximum_throughput_units = var.auto_inflate != null ? var.auto_inflate.maximum_throughput_units : null
@@ -37,16 +37,16 @@ resource "azurerm_eventhub_namespace" "mercedez_benz" {
       }
     }
   }
-    
+
   tags = var.tags
 }
 
 resource "azurerm_eventhub" "mercedez_benz" {
-  name                = "${var.eventhub_name}"
+  name                = var.eventhub_name
   namespace_name      = azurerm_eventhub_namespace.mercedez_benz.name
   resource_group_name = azurerm_resource_group.mercedez_benz.name
-  partition_count     = "${var.eventhub_partition_count}"
-  message_retention   = "${var.eventhub_message_retention}"
+  partition_count     = var.eventhub_partition_count
+  message_retention   = var.eventhub_message_retention
 }
 
 
@@ -70,8 +70,8 @@ resource "azurerm_log_analytics_workspace" "mercedez_benz" {
 }
 
 resource "azurerm_monitor_diagnostic_setting" "mercedez_benz" {
-  name               = "mercedez_benz"
-  target_resource_id = azurerm_eventhub_namespace.mercedez_benz.id
+  name                       = "mercedez_benz"
+  target_resource_id         = azurerm_eventhub_namespace.mercedez_benz.id
   log_analytics_workspace_id = azurerm_log_analytics_workspace.mercedez_benz.id
 
   log {

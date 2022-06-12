@@ -16,7 +16,7 @@ variable "eventhub_namespace_name" {
 
 variable "sku" {
   description = "Defines instance tier to use. Valid options are Basic and Standard."
-  default = "Standard"
+  default     = "Standard"
 }
 
 variable "namespace_capacity" {
@@ -34,14 +34,14 @@ variable "eventhub_name" {
 }
 
 variable "eventhub_partition_count" {
-	type=number
+  type        = number
   description = "Partition count in eventhub"
 }
 
 variable "eventhub_message_retention" {
-  type = number
+  type        = number
   description = "Message Retention for eventhub"
-	default = null
+  default     = null
 }
 
 variable "auto_inflate" {
