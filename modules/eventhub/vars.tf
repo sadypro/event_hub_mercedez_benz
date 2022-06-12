@@ -46,17 +46,6 @@ variable "auto_inflate" {
   default = null
 }
 
-variable "diagnostics" {
-  description = "Diagnostic settings for those resources that support it. See README.md for details on configuration."
-  type = object({
-    destination   = string
-    eventhub_name = string
-    logs          = list(string)
-    metrics       = list(string)
-  })
-  default = null
-}
-
 variable "network_rules" {
   description = "Network rules restricting access to the event hub."
   type = object({
