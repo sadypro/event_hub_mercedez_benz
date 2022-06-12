@@ -4,9 +4,9 @@ This module deploys EventHub Namespace , Eventhub , and Diagnostic Setting
 ## What gets deployed
 | Resource           | Description
 | ---                | ---
-| EventHub Namespace | An Envent Hub Namespace
-| Eventhub     		 | An event HUb inside namespace to ingest envents
-| Diagnostic Setting | Monitoring Settings for the EventHub
+| EventHub Namespace | An Envent hub namespace
+| Eventhub     		 | An EventHub inside namespace to ingest envents
+| Diagnostic Setting | Monitoring settings for the EventHub
 
 
 Setup:
