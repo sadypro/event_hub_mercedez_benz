@@ -11,7 +11,7 @@ This module deploys EventHub Namespace , Eventhub , and Diagnostic Setting
 ## Notes: 
 * Backend is assumed as local for simplicilty.
 * Resource log_analytics_workspace is created additionally to support creation of azurerm_monitor_diagnostic_setting , as one of the one of eventhub_authorization_rule_id, log_analytics_workspace_id and storage_account_id is required for diagnostic setting to apply successfully. Refer :[monitor_diagnostic_setting](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/monitor_diagnostic_setting)
-* If we are want to use existing resource group instead of creating new one, then with little modification of resource group code we can introduce use of exisitng eventhub_authorization_rule_id, log_analytics_workspace_id and storage_account_id using a input variable.
+* If we want to use existing resource group instead of creating new one, then with little modification of resource group code we can introduce use of exisitng eventhub_authorization_rule_id, log_analytics_workspace_id and storage_account_id using a input variable.
 
 Setup:
 * [Install Terraform](https://www.terraform.io/intro/getting-started/install.html)
